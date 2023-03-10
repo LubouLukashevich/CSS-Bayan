@@ -1,0 +1,94 @@
+html {
+    font-family: 'Rubik', sans-serif;
+    font-size: 10px;
+    color: black;
+  }
+
+body {
+    background-color: ivory; 
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+
+.wrapper {
+    max-width: 1920px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+hr {
+    border-top: 1px solid lightgray;
+}
+
+img {
+    margin: 20px 20px;
+    width: 80%;
+}
+
+@media (max-width: 820px) {
+    img {
+        margin: 20px 20px;
+        width: 80%;
+    }
+}
+
+@media (max-width: 320px) {
+    img {
+        margin: 10px 10px;
+        width: 80%;
+    }
+}
+
+h1 {
+    font-size: 4rem;
+    line-height: 1rem;
+}
+
+@media (max-width: 820px) {
+    h1 {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 320px) {
+    h1 {
+        font-size: 2rem;
+    }
+}
+
+.title {
+    font-size: 2rem;
+}
+
+
+@media (max-width: 820px) {
+    .title {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 320px) {
+    .title {
+        font-size: 1rem;
+    }
+}
+
+details {
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+summary {
+    list-style: none;
+    background: url("./icon_open.svg") no-repeat right  ivory;
+}
+
+details[open] > summary {
+    background: url("./icon_close.svg") no-repeat right  ivory;
+}
