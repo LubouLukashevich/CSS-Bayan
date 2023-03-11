@@ -26,21 +26,8 @@ hr {
     margin: 0;
 }
 
-img {
-    margin: 20px 20px;
+div img {
     width: 80%;
-}
-
-@media (max-width: 820px) {
-    img {
-        margin: 1.5rem 1.5rem;
-    }
-}
-
-@media (max-width: 320px) {
-    img {
-        margin: 1rem 1rem;
-    }
 }
 
 h1 {
@@ -100,19 +87,72 @@ details {
 
 summary {
     list-style: none;
-    background: url("./icon_open.svg") no-repeat right  transparent;
-    background-size: 1.5rem;
     text-align: left;
     margin: 1rem 0;
+    color: #0088ff;
+}
+
+details[open]  summary {
+    list-style: none;
+    background: url("./icon_close.svg") no-repeat right  transparent;
+    background-size: 1.3rem;
+    margin: 1rem 0;
+    color: black;
 }
 
 @media (max-width: 320px) {
-    summary {
+    details[open]  summary {
+       background-size: 0.8rem;
+    }
+}
+
+details div {
+    margin: auto;
+    padding: 2rem;
+    animation: spoiler 0.5s;
+}
+
+@media (max-width: 820px) {
+    details div {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 320px) {
+    details div {
+        padding: 1rem;
+    }
+}
+
+@keyframes spoiler {
+    0%   {transform: scale(0.2, 0.2)}
+    100% {transform: scale(1.0, 1.0)}
+}
+
+.accordeon {
+    padding: 5px;
+}
+
+.accordeon:hover > details summary {
+    background: url("./icon_open.svg") no-repeat right  transparent;
+    background-size: 1.5rem;
+    color: black;
+}
+
+@media (max-width: 320px) {
+    .accordeon:hover > details summary {
        background-size: 1rem;
     }
 }
 
-details[open]  summary {
+.accordeon:hover > details[open] summary {
     background: url("./icon_close.svg") no-repeat right  transparent;
-    background-position-x: -1rem;
+    background-size: 1.3rem;
+    color: black;
+}
+
+@media (max-width: 320px) {
+    .accordeon:hover > details[open] summary  {
+        background-size: 0.8rem;
+    }
 }
