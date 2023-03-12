@@ -26,7 +26,7 @@ hr {
     margin: 0;
 }
 
-div img {
+div > img {
     width: 80%;
 }
 
@@ -90,26 +90,19 @@ summary {
     text-align: left;
     margin: 1rem 0;
     color: #0088ff;
+    display: flex;
+    flex-direction: column;
 }
 
 details[open]  summary {
     list-style: none;
-    background: url("./icon_close.svg") no-repeat right  transparent;
-    background-size: 1.3rem;
     margin: 1rem 0;
     color: black;
-}
-
-@media (max-width: 320px) {
-    details[open]  summary {
-       background-size: 0.8rem;
-    }
 }
 
 details div {
     margin: auto;
     padding: 2rem;
-    animation: spoiler 0.5s;
 }
 
 @media (max-width: 820px) {
@@ -125,18 +118,24 @@ details div {
 }
 
 @keyframes spoiler {
-    0%   {transform: scale(0.2, 0.2)}
-    100% {transform: scale(1.0, 1.0)}
+    0%   {opacity: 0;}
+    100% {opacity: 1;}
 }
 
 .accordeon {
     padding: 5px;
 }
 
-.accordeon:hover > details summary {
+.accordeon:hover > details summary{
     background: url("./icon_open.svg") no-repeat right  transparent;
     background-size: 1.5rem;
     color: black;
+}
+
+@media (max-width: 320px) {
+    .accordeon:hover > details summary {
+       background-size: 1.5rem;
+    }
 }
 
 @media (max-width: 320px) {
@@ -153,6 +152,47 @@ details div {
 
 @media (max-width: 320px) {
     .accordeon:hover > details[open] summary  {
+        background-size: 1.2rem;
+    }
+}
+
+@media (max-width: 320px) {
+    .accordeon:hover > details[open] summary  {
         background-size: 0.8rem;
     }
+}
+
+.show {
+    width: 95%;
+    display: none;
+    padding: 3rem 0;
+    text-align: center;
+}
+.show:hover,
+details summary:hover > .show {
+    display: block;
+    animation: spoiler 1s;
+}
+
+.accordeon:hover > details summary:hover {
+    background: url("./icon_close.svg") no-repeat right  transparent;
+    background-position: right 0 top 5px;
+    background-size: 1.3rem;
+    color: black;
+}
+
+@media (max-width: 820px) {
+    .accordeon:hover > details summary:hover  {
+        background-size: 1.2rem;
+    }
+}
+
+@media (max-width: 320px) {
+    .accordeon:hover > details summary:hover  {
+        background-size: 0.7rem;
+    }
+}
+
+details[open] summary:hover > .show {
+    display: none;
 }
